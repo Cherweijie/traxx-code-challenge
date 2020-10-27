@@ -1,0 +1,36 @@
+<head>
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+ <title>Fancy Form</title>
+
+ <!-- You may add more stuff here -->
+ <script defer src="otpscript.js" type="text/javascript"></script>
+ <link href="style.css" rel="stylesheet" />
+</head>
+
+<div class="container">
+ <div class="header">
+  <h2>BTC Transaction Form</h2>
+ </div>
+ <form id="form" class="form" onsubmit="return !1">
+  <div class="form-control">
+   <label for="input-phone-number">Phone Number</label>
+   <input type="number" placeholder="91234567" id="input-phone-number" />
+   <button class="prompt-btn">Send OTP</button>
+   <i class="fas fa-check-circle"></i>
+   <i class="fas fa-exclamation-circle"></i>
+   <small>Error message</small>
+  </div>
+
+  <div class="form-control">
+   <i class="fas fa-check-circle"></i>
+   <i class="fas fa-exclamation-circle"></i>
+   <div class="otp-block">
+    <label class="prompt">Did not receive your OTP?</label>
+    <button class="prompt-btn">Re-send OTP</button>
+   </div>
+  </div>
+  <button class="send-btn" onclick="closeSelf()">Go Back To Verify</button>
+ </form>
+</div>
+
+</html>

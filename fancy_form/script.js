@@ -6,7 +6,10 @@ const phone = document.getElementById('input-phone-number');
 
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    checkInputs();
+    var checked = checkInputs();
+    if (checked) {
+      form.reset();
+    }
 });
 
 function areForbiddenCharactersPresent(address) {

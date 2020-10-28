@@ -14,14 +14,14 @@
 	<form id="form" class="form" onsubmit="return !1">
 		<div class="form-control">
 			<label for="input-address">Bitcoin Address</label>
-			<input type="text" placeholder="16q4PinynazaMYfv24juNLkbjkDQxJo2dc" id="input-address"/>
+			<input type="text" placeholder="16q4PinynazaMYfv24juNLkbjkDQxJo2dc" id="input-address" required/>
 			<i class="fas fa-check-circle"></i>
 			<i class="fas fa-exclamation-circle"></i>
 			<small>Error message</small>
 		</div>
 		<div class="form-control">
 			<label for="input-amount">Amount to Send</label>
-			<input placeholder="0.0000" id="input-amount"/>
+			<input type="number" step=".0001" placeholder="0.0000" id="input-amount"/>
 			<i class="fas fa-check-circle"></i>
 			<i class="fas fa-exclamation-circle"></i>
 			<small>Error message</small>
@@ -29,7 +29,7 @@
 		<div class="form-control">
 			<label for="input-otp">OTP Authentication</label>
 			<button class="prompt-btn" onclick="popupUploadForm()">Get OTP</button>
-			<input placeholder="Enter OTP here" id="input-otp"/>
+			<input type="text" placeholder="Enter OTP here" id="input-otp"/>
 			<i class="fas fa-check-circle"></i>
       <i class="fas fa-exclamation-circle"></i>
       

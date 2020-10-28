@@ -17,31 +17,30 @@ function areForbiddenCharactersPresent(address) {
   return address_includes_0 && address_includes_I && address_includes_O && address_includes_l;
 }
 
+function checkAmountValidity(amount) {
+  if(amount === '') {
+    return false;
+  } else if (amount.includes("-")) {
+      return false;
+  } else {
+    return true;
+  }
+}
+
 function checkAddressValidity(address) {
-  var first_char = address.charAt(0);
   var length_of_address = address.length;
   var forbiddenCharactersArePresent = areForbiddenCharactersPresent(address);
-
-  if (!bitCoinAddr.match(/(1|3|bc1)/)) {
-    alert('The bitcoin address is invalid. The first character should be a 1 or 3.');
+  if (address === '') {
     return false;
+  } else if (!address.match(/^[13][a-km-zA-HJ-NP-Z1-9]{25,34}$/)) {
+    // Regex bitcoin taken from the link below to check a rough validity of the bitcoin address.
+    // http://mokagio.github.io/tech-journal/2014/11/21/regex-bitcoin.html
+    return false;
+  } else if (address.match(/(\W)/)) {
+      // The bitcoin address is invalid. It cannot have symbols and other characters.
+      return false;
   } else {
-    if (length_of_address < 26 || length_of_address > 35) {
-      //alert('The bitcoin address is invalid. It has to be between 26 and 35 characters long.');
-      return false;
-    }
-    if (forbiddenCharactersArePresent) {
-      //alert('The bitcoin address is invalid. It should not contain 0, O, I or l.');
-      return false;
-    }
-    if (address.match(/(\W)/)) {
-      alert("The bitcoin address is invalid. It cannot have symbols and other characters.");
-      return false;
-    }
-    if (length_of_address >= 26 && length_of_address <= 35 && !forbiddenCharactersArePresent) {
-      //alert('The bitcoin address is valid.');
-      return true;
-    }
+    return true;
   }
 }
 
@@ -60,11 +59,10 @@ function checkInputs() {
     const addressValue = address.value.trim();
     const amountValue = amount.value.trim();
     const otpValue = otp.value.trim();
-    const phoneValue = phone.value.trim();
 
-    if(addressValue === '') {
+    if (addressValue === '') {
        status = setErrorFor(address, 'The Bitcoin Address is invalid.');
-                                 //if not validating then "false"
+       //if not validating then "false"
     } else {
       if (checkAddressValidity(addressValue)) {
         status = setSuccessFor(address);
@@ -73,24 +71,28 @@ function checkInputs() {
       }
     }
 
-    if(amountValue === '') {
-       status =  setErrorFor(amount, 'The input amount is invalid.');
+    if (checkAmountValidity(amountValue)) {
+      status = setSuccessFor(amount);
     } else {
-       status =  setSuccessFor(amount);
+      status = setErrorFor(amount, 'The input amount is invalid.')
     }
 
-    if(otpValue === '') {
-       status =  setErrorFor(otp, 'The OTP field is invalid.');
+    if (checkOtpValidity(otpValue)) {
+      status =  setSuccessFor(otp);
     } else {
-       status =  setSuccessFor(otp);
-    }
-
-    if (phoneValue === '') {
-      status = setErrorFor(phone, 'The Phone Number field is empty.');
-    } else {
-      status = setSuccessFor(phone);
+       status = setErrorFor(otp, 'The OTP field is invalid.');
     }
     return status;
+}
+
+function checkOtpValidity(otp) {
+  if (otp === '') {
+    return false;
+  } else if (otp.length != 6) {
+    return false;
+  } else {
+    return true;
+  }
 }
 
 function setErrorFor(input, message) {

@@ -5,6 +5,18 @@ This [link](https://stackoverflow.com/questions/21559851/bitcoin-address-form-va
 
 ## Simple Validation Guidelines for Bitcoin Address
 
+Guidelines taken from online Bitcoin validity resources; particularly, from this [link](http://mokagio.github.io/tech-journal/2014/11/21/regex-bitcoin.html)
+
 1. The first character should be a 1 or 3.
 2. It has to be between 26 and 35 characters long.
 3. It should not contain 0, O, I or l.
+
+## Validation Guidelines for Other Fields
+
+- Guidelines for Amount of Money to Be Sent:
+
+1. Positive & numeric, up to 4 decimal places.
+
+- Guidelines for OTP Authentication:
+
+1. Alphanumeric, only accepts 6 characters.

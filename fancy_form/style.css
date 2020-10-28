@@ -22,7 +22,18 @@ body {
 
 .prompt {
   font-size: 15px;
-  max-width: 50%;
+  width: 45%;
+}
+
+.otp-prompt-btn {
+  background-color: #8e44ad;
+  border: 2px solid #8e44ad;
+  border-radius: 4px;
+  color: #fff;
+  font-family: inherit;
+  font-size: 14px;
+  margin-top: 10px;
+  float: right;
 }
 
 .prompt-btn {

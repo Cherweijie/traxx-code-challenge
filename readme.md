@@ -13,10 +13,16 @@ Guidelines taken from online Bitcoin validity resources; particularly, from this
 
 ## Validation Guidelines for Other Fields
 
-- Guidelines for Amount of Money to Be Sent:
+### Guidelines for Amount of Money to Be Sent:
 
-1. Positive & numeric, up to 4 decimal places.
+- Positive & numeric
+- Up to 4 decimal places.
 
-- Guidelines for OTP Authentication:
+### Guidelines for OTP Authentication:
 
-1. Alphanumeric, only accepts 6 characters.
+- Alphanumeric
+- Only accepts 6 characters.
+
+## Button Properties
+
+- Buttons are dummy functions.
